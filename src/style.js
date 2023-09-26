@@ -75,8 +75,20 @@ const DataList = styled.ul`
     justify-content: left;
     background-color: burlywood;
     margin-left: 1rem;
-    li{
+    /* li{
         margin: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+    } */
+    li span{
+        max-height: 2rem;
+        overflow: hidden;
+    }
+    .category {
+        background-color: burlywood;
+    }
+    .element{
+        background-color: #D9D9D9;
     }
 `;
 

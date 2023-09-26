@@ -1,8 +1,11 @@
 import s from '../style'
 
-const DataEle = ({db}) => {
-    let result;
-    if(typeof(db) === 'object'){
+const DataEle = ({db, need_category}) => {
+    let result = <></>;
+    
+    console.log("type is "+typeof(db));
+    console.log(db);
+    if(typeof(db) === 'object' && db != null && db != undefined){
         if(Array.isArray(db)){
             if(typeof(db[0]) === 'object'){
                 if(Array.isArray(db[0])){
@@ -18,27 +21,68 @@ const DataEle = ({db}) => {
                                 )}
                             </li>
                             {db.map((d, i) => {
-                                return <DataEle key={i} db={d}></DataEle>
-                            })} 
+                                return <DataEle key={i} db={d} need_category={false}></DataEle>
+                            })}
                         </s.DataList>
                     )
                 }
-
             }
         }else if(Object.keys(db).length > 1){
                 result = (
-                    <li className='element'>
-                        {Object.entries(db).map(
-                            ([key, value], i) => {
-                                if(typeof(value) === 'object'){
-                                    return <DataEle key={i} db={value}/>
+                    <>
+                    {need_category ? (
+                        <>
+                        <li className='category'>
+                            {Object.entries(db).map(
+                                ([key, _], i) => {
+                                    // if(typeof(value) === 'object'){
+                                    //     return <DataEle key={i} db={key} need_category={true}/>
+                                    // }
+                                    // else{
+                                    //     return <span key={i}>{key}</span>
+                                    // }
+                                    return <span key={i}>{key}</span>
                                 }
-                                else{
-                                    return <span key={i}>{value}</span>
+                            )}
+                        </li>
+                        <li className='element'>
+                            {Object.entries(db).map(
+                                ([_, value], i) => {
+                                    if (value === null || value === undefined){
+                                        return <span key={i}>null</span>
+                                    }
+                                    else if(typeof(value) === 'object'){
+                                        return <DataEle key={i} db={value} need_category={false}/>
+                                        // return <span key={i}>Object</span>
+                                    }
+                                    else{
+                                        return <span key={i}>{value}</span>
+                                    }
                                 }
-                            }
-                        )}
-                    </li>
+                            )}
+                        </li>
+                        </>
+                    ): <>
+                        <li className='element'>
+                            {Object.entries(db).map(
+                                ([_, value], i) => {
+                                    if (value === null || value === undefined){
+                                        return <span key={i}>null</span>
+                                    }
+                                    else if(typeof(value) === 'object'){
+                                        return <DataEle key={i} db={value} need_category={true}/>
+                                        // return <span key={i}>Object</span>
+                                    }
+                                    else{
+                                        return <span key={i}>{value}</span>
+                                    }
+                                }
+                            )}
+                        </li>
+                    </>}
+                    
+                    </>
+
                 );
             }else{
                 result = (
@@ -46,7 +90,7 @@ const DataEle = ({db}) => {
                     {Object.entries(db).map(
                         ([key, value], i) => {
                             if(typeof(value) === 'object'){
-                                return <DataEle key={i} db={value}/>
+                                return <DataEle key={i} db={value} need_category={false}/>
                             }
                             else{
                                 return <span key={i}>{value}</span>
@@ -69,7 +113,9 @@ const JsonPage = () => {
     console.log(data);
     return (
         <s.Main>
-            {<DataEle db={data}/>}
+            <s.DataList>
+                {<DataEle db={data}/>}
+            </s.DataList>
         </s.Main>
     )
 }
