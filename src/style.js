@@ -70,24 +70,51 @@ const Main = styled.main`
 `;
 
 const DataList = styled.ul`
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: left;
-    background-color: burlywood;
+    height: 800px;
     margin-left: 1rem;
-    /* li{
-        margin: 0.5rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(100px, auto));
-    } */
-    li span{
-        max-height: 2rem;
-        overflow: hidden;
+    overflow: auto;
+    li {
+        white-space: nowrap;
     }
-    .category {
+    li span{
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        //height: 1.5;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        border: 1px solid black;
+        
+    }
+    .object{
+        position: absolute;
+        //top: 100%;
+        display: inline-block;
+        width: 100px;
+        height: 1.5rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        border: 1px solid black;
+        transition: 0.3s;
+    }
+    .object:hover{
+        background-color: darkblue;
+    }
+    .ob{
+        position: absolute;
+        top: 100%;
+    }
+    .category > span{
         background-color: burlywood;
     }
     .element{
+        position: relative;
+    }
+    .element > span{
         background-color: #D9D9D9;
     }
 `;
