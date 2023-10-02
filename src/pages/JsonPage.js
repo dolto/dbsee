@@ -56,10 +56,10 @@ const DataEle = ({db, need_category}) => {
                                     else if(typeof(value) === 'object'){
                                         count += 1;
                                         return <li className='object' key={i}
-                                        onClick={(e) => {
-                                            let target = e.currentTarget;
-                                            console.log(e);
-                                            target.className = target.className == 'ob' ? 'object' : 'ob';}}
+                                        // onClick={(e) => {
+                                        //     let target = e.currentTarget;
+                                        //     console.log(e);
+                                        //     target.className = target.className == 'ob' ? 'object' : 'ob';}}
                                         style={{left:`${100 * i}px`}}><DataEle db={value} need_category={true}/></li>
                                         // return <DataEle key={i} db={value} need_category={true}/>
                                         // return <span key={i}>Object</span>
@@ -82,10 +82,10 @@ const DataEle = ({db, need_category}) => {
                                     else if(typeof(value) === 'object'){
                                         count += 1;
                                         return <li className='object' key={i}
-                                        onClick={(e) => {
-                                            let target = e.currentTarget;
-                                            console.log(e);
-                                            target.className = target.className == 'ob' ? 'object' : 'ob';}}
+                                        // onClick={(e) => {
+                                        //     let target = e.currentTarget;
+                                        //     console.log(e);
+                                        //     target.className = target.className == 'ob' ? 'object' : 'ob';}}
                                         style={{left:`${100 * i}px`}}><DataEle db={value} need_category={true}/></li>
                                         // return <span key={i}>Object</span>
                                     }
@@ -105,7 +105,7 @@ const DataEle = ({db, need_category}) => {
             result = (
             <>
                 {Object.entries(db).map(
-                    ([key, value], i) => {
+                    ([_, value], i) => {
                         if(typeof(value) === 'object'){
                             return <DataEle key={i} db={value} need_category={false}/>
                         }
@@ -130,7 +130,20 @@ const JsonPage = () => {
     console.log(data);
     return (
         <s.Main>
-            <s.DataList>
+            <s.DataList
+            onClick={(e)=>{
+                let parent = e.target;
+
+                while(true){
+                    const className = parent.className;
+                    if(className == 'ob' || className == 'object'){
+                        parent.className = className == 'ob' ? 'object' : 'ob';
+                        return;
+                    }else{
+                        parent = parent.parentNode;
+                    }
+                }
+            }}>
                 {<DataEle db={data} need_category={true}/>}
             </s.DataList>
         </s.Main>

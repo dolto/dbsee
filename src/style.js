@@ -100,6 +100,7 @@ const DataList = styled.ul`
         overflow: hidden;
         border: 1px solid black;
         transition: 0.3s;
+        z-index: 1;
     }
     .object:hover{
         background-color: darkblue;
@@ -107,6 +108,7 @@ const DataList = styled.ul`
     .ob{
         position: absolute;
         top: 100%;
+        z-index: 2;
     }
     .category > span{
         background-color: burlywood;
