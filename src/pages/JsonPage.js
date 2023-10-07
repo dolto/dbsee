@@ -1,3 +1,4 @@
+import { createElement } from 'react';
 import s from '../style'
 
 const DataEle = ({db, need_category}) => {
@@ -36,12 +37,6 @@ const DataEle = ({db, need_category}) => {
                         <li className='category'>
                             {Object.entries(db).map(
                                 ([key, _], i) => {
-                                    // if(typeof(value) === 'object'){
-                                    //     return <DataEle key={i} db={key} need_category={true}/>
-                                    // }
-                                    // else{
-                                    //     return <span key={i}>{key}</span>
-                                    // }
                                     return <span key={i}>{key}</span>
                                 }
                             )}
@@ -49,20 +44,32 @@ const DataEle = ({db, need_category}) => {
                         <li className='element'>
                             {Object.entries(db).map(
                                 ([_, value], i) => {
-                                    //count = 0;
                                     if (value === null || value === undefined){
                                         return <span key={i} style={{left:`${100 * count}px`}}>null</span>
                                     }
                                     else if(typeof(value) === 'object'){
                                         count += 1;
                                         return <li className='object' key={i}
-                                        // onClick={(e) => {
-                                        //     let target = e.currentTarget;
-                                        //     console.log(e);
-                                        //     target.className = target.className == 'ob' ? 'object' : 'ob';}}
-                                        style={{left:`${100 * i}px`}}><DataEle db={value} need_category={true}/></li>
-                                        // return <DataEle key={i} db={value} need_category={true}/>
-                                        // return <span key={i}>Object</span>
+                                        style={{left:`${100 * i}px`}}>
+                                            <DataEle db={value} need_category={true}/>
+                                        </li>
+                                    }
+                                    else if(typeof(value) == 'string'){
+                                        if(/^&lt;/.test(value)){
+                                            let str = value.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+                                            str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+                                            let db = document.createElement('div');
+                                            db.innerHTML = str;
+                                            //console.log(db);
+                                            str = db.textContent;
+                                            db.textContent = '';
+                                            console.log(str);
+                                            let element = <div dangerouslySetInnerHTML={{__html:str}}></div>;
+                                            
+                                            return <span key={i} style={{left:`${100 * count}px`}}>{element}</span>
+                                        }else{
+                                            return <span key={i} style={{left:`${100 * count}px`}}>{value}</span>
+                                        }
                                     }
                                     else{
                                         return <span key={i} style={{left:`${100 * count}px`}}>{value}</span>
@@ -75,19 +82,15 @@ const DataEle = ({db, need_category}) => {
                         <li className='element'>
                             {Object.entries(db).map(
                                 ([_, value], i) => {
-                                    //count = 0;
                                     if (value === null || value === undefined){
                                         return <span key={i} style={{left:`${100 * count}px`}}>null</span>
                                     }
                                     else if(typeof(value) === 'object'){
                                         count += 1;
                                         return <li className='object' key={i}
-                                        // onClick={(e) => {
-                                        //     let target = e.currentTarget;
-                                        //     console.log(e);
-                                        //     target.className = target.className == 'ob' ? 'object' : 'ob';}}
-                                        style={{left:`${100 * i}px`}}><DataEle db={value} need_category={true}/></li>
-                                        // return <span key={i}>Object</span>
+                                        style={{left:`${100 * i}px`}}>
+                                            <DataEle db={value} need_category={true}/>
+                                        </li>
                                     }
                                     else{
                                         return <span key={i} style={{left:`${100 * count}px`}}>{value}</span>
@@ -136,11 +139,15 @@ const JsonPage = () => {
 
                 while(true){
                     const className = parent.className;
-                    if(className == 'ob' || className == 'object'){
-                        parent.className = className == 'ob' ? 'object' : 'ob';
-                        return;
+                    if(className != null || className != undefined){
+                        if(className == 'ob' || className == 'object'){
+                            parent.className = className == 'ob' ? 'object' : 'ob';
+                            return;
+                        }else{
+                            parent = parent.parentNode;
+                        }
                     }else{
-                        parent = parent.parentNode;
+                        return;
                     }
                 }
             }}>

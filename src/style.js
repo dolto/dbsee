@@ -80,11 +80,11 @@ const DataList = styled.ul`
     li {
         white-space: nowrap;
     }
-    li span{
+    li > span{
         position: relative;
         display: inline-block;
         width: 100px;
-        //height: 1.5;
+        height: 1.5rem;
         text-overflow: ellipsis;
         overflow: hidden;
         border: 1px solid black;
