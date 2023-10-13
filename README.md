@@ -1,46 +1,10 @@
-# Getting Started with Create React App
+DB SEE 프로젝트
+-
+dbsee 개선사항
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+엑셀같은 형식을 하지 말고, 그리드 형태로 직사각형형태의 게시물로 만들기
 
-## Available Scripts
+처음하면 일단 거의 무조건 하나의 직사각형 게시물이 나타나고, 그걸 클릭하면 그 안의 요소를 내용으로 출력 (게시글 형태로) 한 다음
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+리스트를 직사각형 형태의 게시물로 변환하고 그리드 형태로 쭉쭉 나열하는걸로 하면?
+(그러면 일단 보이는것 자체가 한눈에 보이게 되고, 좀 더 현실적인 방법으로 여러가지 데이터 형태를 합리적으로 표현할 수 있음)
