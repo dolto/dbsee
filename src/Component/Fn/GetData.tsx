@@ -1,8 +1,14 @@
 const getData = async (url:string): Promise<string> => {
     let result:string = "";
+    
+    if(url.startsWith("www")){
+        console.log("http추가");
+        url = "https://"+url ;
+    }
     console.log(url);
     try {
         const res = await fetch(url);
+        console.log(res);
         const rjs = await res.json();
         result = JSON.stringify(rjs);
     }catch{
