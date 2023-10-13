@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { SearchBarPage } from "../../styled/MainSearchPage";
 import { useState } from "react";
 import getData from "../Fn/GetData";
+import LZString from "lz-string";
 
 // function utf8_to_b64( str ) {
 //     return window.btoa(unescape(encodeURIComponent( str )));
@@ -28,7 +29,7 @@ const MainSearch = () => {
                         alert("url을 먼저 입력해주세요!");
                     else{
                         data = await getData(getUrl);
-                        nav('/DBSeePage?d='+window.btoa(encodeURIComponent( data )));
+                        nav('/DBSeePage?d='+LZString.compressToEncodedURIComponent(encodeURIComponent( data )));
                     }
                 }}/>
             </form>

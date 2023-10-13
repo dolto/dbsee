@@ -1,11 +1,36 @@
 import styled from "styled-components";
 
 const MainSearchPage = styled.main`
+    position: relative;
     display: flex;
     flex-direction: column;
     width: calc(100% - 2rem);
     margin: auto;
     background-color: #CFFFFF;
+    .obj{
+        background-color: #c0fcfc;
+        width: calc(100% - 2rem);
+        margin: auto;
+        border: solid 1px #4c3699;
+    }
+    .html_content{
+        //display: table-cell;
+        background-color: #f3e0c0;
+        width: calc(100% - 2rem);
+        margin: auto;
+        border: solid 1px #993636;
+        text-align: start;
+        //justify-content: start;
+    }
+    .key{
+        color: #cf4d4d;
+        font-weight: bold;
+        font-size: 1rem;
+    }
+    .value{
+        color: #694dcf;
+        font-size: 0.8rem;
+    }
 `;
 
 const SearchBarPage = styled.div`
@@ -39,4 +64,55 @@ const SearchBarPage = styled.div`
     }
 `;
 
-export { MainSearchPage, SearchBarPage };
+const ElementPage = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: start;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    a{
+        display: contents;
+    }
+    .key{
+        text-align: end;
+    }
+    .value{
+        text-align: start;
+    }
+`;
+
+const ArrayElementPage = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 10rem);
+    width: calc(100% - 2rem);
+    grid-gap: 0.25rem;
+    justify-content: start;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+`
+
+const Ele = styled.div`
+    position: relative;
+    background-color: #D9D9D9;
+    width: 10rem;
+    height: 10rem;
+    a {
+        position: absolute;
+        background-color: transparent;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: 0.3s;
+    }
+    a:hover {
+        background-color: #b4acac3b;
+    }
+    overflow: hidden;
+`
+
+export { MainSearchPage, SearchBarPage, ElementPage, ArrayElementPage, Ele };
