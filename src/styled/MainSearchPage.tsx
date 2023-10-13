@@ -7,6 +7,8 @@ const MainSearchPage = styled.main`
     width: calc(100% - 2rem);
     margin: auto;
     background-color: #CFFFFF;
+    justify-content: center;
+    text-align: center;
     .obj{
         background-color: #c0fcfc;
         width: calc(100% - 2rem);
@@ -41,6 +43,7 @@ const SearchBarPage = styled.div`
     background-color: #CFFFFF;
     justify-content: center;
     align-items: center;
+    text-align: center;
     form{
         display: block;
         width: 100%;
@@ -59,6 +62,7 @@ const SearchBarPage = styled.div`
         padding-right: 2rem;
         border-radius: 8px;
         font-size: 0.8rem;
+        justify-self: center;
         background-color: #C30000;
         color: #D9D9D9;
     }

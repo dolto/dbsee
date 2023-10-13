@@ -1,4 +1,3 @@
-import './App.css';
 import HeadMenu from './Component/Header/HeadMenu';
 import Footer from './Component/Footer/Footer';
 import { Route, Routes } from 'react-router-dom';
