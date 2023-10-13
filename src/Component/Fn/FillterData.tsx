@@ -87,7 +87,7 @@ const fillterResult: Map<"object"|"array"|"string"|"other"|"html_content"|"http_
                                         const result = fn(k, v[k],i);
                                         return result;
                                     })}
-                                    <Link to={'/DBSeePage?d='+LZString.compressToEncodedURIComponent(encodeURIComponent( data ))}></Link>
+                                    <Link to={'/dbsee/DBSeePage?d='+LZString.compressToEncodedURIComponent(encodeURIComponent( data ))}></Link>
                                 </Ele>
                             )
                         })}

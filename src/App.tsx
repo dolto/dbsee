@@ -9,9 +9,9 @@ function App() {
     <div className="App">
       <HeadMenu></HeadMenu>
       <Routes>
-        <Route path='/'
+        <Route path='/dbsee'
         element={<MainSearch/>}/>
-        <Route path='/DBSeePage'
+        <Route path='/dbsee/DBSeePage'
         element={<MainDBsee/>}/>
       </Routes>
       <Footer></Footer>

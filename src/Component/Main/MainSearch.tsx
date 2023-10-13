@@ -29,7 +29,7 @@ const MainSearch = () => {
                         alert("url을 먼저 입력해주세요!");
                     else{
                         data = await getData(getUrl);
-                        nav('/DBSeePage?d='+LZString.compressToEncodedURIComponent(encodeURIComponent( data )));
+                        nav('/dbsee/DBSeePage?d='+LZString.compressToEncodedURIComponent(encodeURIComponent( data )));
                     }
                 }}/>
             </form>
