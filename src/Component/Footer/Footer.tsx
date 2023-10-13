@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import FooterPage from '../../styled/FooterPage';
 
 const Footer = () => {
