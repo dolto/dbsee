@@ -15,6 +15,16 @@ const HeadMenuPage = styled.header`
         text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
         grid-column: 2;
     }
+    #tap{
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-evenly;
+        align-items: center;
+    }
 `;
 
 export default HeadMenuPage;

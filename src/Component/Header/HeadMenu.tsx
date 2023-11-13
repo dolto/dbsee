@@ -10,6 +10,15 @@ const HeadMenu = () => {
             }}>
                 Dbsee
             </h1>
+            <br />
+            <section id="tap">
+                <nav onClick={(e) => {
+                nav('#Taps');
+                }}>Taps</nav>
+                <nav onClick={(e) => {
+                nav('#Search');
+                 }}>Search</nav>
+            </section>
         </HeadMenuPage>
     );
 }
