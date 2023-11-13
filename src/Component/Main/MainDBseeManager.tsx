@@ -1,19 +1,23 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SearchBarPage } from "../../styled/MainSearchPage";
-import { useState } from "react";
-import getData from "../Fn/GetData";
 import LZString from "lz-string";
 
-// function utf8_to_b64( str ) {
-//     return window.btoa(unescape(encodeURIComponent( str )));
-//   }
-  
-//   function b64_to_utf8( str ) {
-//     return decodeURIComponent(escape(window.atob( str )));
-//   }
-const MainSearch = () => {
+const MainDBseeManager = () => {
     const nav = useNavigate();
     const [getUrl, setUrl] = useState<string>();
+    const [getManager, setManager] = useState<boolean>(false);
+    useEffect(()=>{
+        if (getManager){
+            return;
+        }
+        const is_manager = prompt("매니저 키코드를 입력해주세요");
+        if(is_manager !== "root"){
+            nav("/Search");
+        }else{
+            setManager(true);
+        }
+    }, [getManager, nav]);
     return (
         <SearchBarPage>
             <form method="get">
@@ -28,8 +32,8 @@ const MainSearch = () => {
                     if(getUrl == null)
                         alert("url을 먼저 입력해주세요!");
                     else{
-                        data = await getData(getUrl);
-                        nav('/DBSeePage?d='+LZString.compressToEncodedURIComponent(encodeURIComponent( data )));
+                        data = getUrl;
+                        nav('/DBSeeCustom?d='+LZString.compressToEncodedURIComponent(encodeURIComponent( data )));
                     }
                 }}/>
             </form>
@@ -37,4 +41,4 @@ const MainSearch = () => {
     );
 };
 
-export default MainSearch;
+export default MainDBseeManager;

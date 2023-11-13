@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
-const MainTapsPage = styled.main`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 0.5rem;
+const MainCustomPage = styled.main`
+    
     width: calc(100% - 4rem);
     margin: auto;
     h2{
@@ -11,6 +9,7 @@ const MainTapsPage = styled.main`
         font-weight: bold;
     }
     section{
+        display: flex;
         border: solid 2px #000000;
         text-align: center;
         justify-content: center;
@@ -22,4 +21,4 @@ const MainTapsPage = styled.main`
 
 `;
 
-export default MainTapsPage;
+export default MainCustomPage;

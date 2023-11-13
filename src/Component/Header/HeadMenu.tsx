@@ -13,10 +13,10 @@ const HeadMenu = () => {
             <br />
             <section id="tap">
                 <nav onClick={(e) => {
-                nav('#Taps');
+                nav('/Taps');
                 }}>Taps</nav>
                 <nav onClick={(e) => {
-                nav('#Search');
+                nav('/Search');
                  }}>Search</nav>
             </section>
         </HeadMenuPage>

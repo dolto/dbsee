@@ -11,7 +11,7 @@ const MainDBsee = () => {
     let data:[string,any][] = [];
     if(data_lzstring == null){
         alert('들어온 데이터가 없습니다!!');
-        nav('/');
+        nav('/Taps');
     }
     data = Object.entries(JSON.parse(decodeURIComponent(LZString.decompressFromEncodedURIComponent(data_lzstring as string))));
     return (
