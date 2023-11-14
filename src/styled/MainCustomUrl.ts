@@ -8,15 +8,15 @@ const MainCustomPage = styled.main`
         font-size: 1.5rem;
         font-weight: bold;
     }
-    section{
+    .element{
         display: flex;
-        border: solid 2px #000000;
         text-align: center;
         justify-content: center;
         margin-bottom: 0px;
+        margin-top: 0.3rem;
     }
-    .select{
-        border-bottom: transparent;
+    .list{
+        text-align: center;
     }
 
 `;

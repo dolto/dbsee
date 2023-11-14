@@ -13,4 +13,20 @@ const dataUrl = (url: string): string[] => {
     return result;
 }
 
-export default dataUrl;
+const urlData = (data: any): string => {
+    // 입력한 데이터로 url을 생성
+    let url = data['url'];
+    let resultUrl = url.split('?')[0] + "?";
+    let tempData = dataUrl(url);
+
+    tempData.forEach((d, i) => {
+        if(i === tempData.length -1)
+            resultUrl += d + "=" + data[d];
+        else
+            resultUrl += d + "=" + data[d] + "&";
+    });
+
+    return resultUrl;
+}
+
+export { dataUrl, urlData };

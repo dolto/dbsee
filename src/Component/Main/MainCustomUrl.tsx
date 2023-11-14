@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import LZString from "lz-string";
-import dataUrl from "../Fn/DataUrl";
+import {dataUrl} from "../Fn/DataUrl";
 import MainCustomPage from "../../styled/MainCustomUrl";
 import { useState } from "react";
 
@@ -17,7 +17,8 @@ const MainCustomUrl = ()=>{
             {data.map(d => {
                 //setJson((json: any) => {json[d] = []; return json});
                 return(
-                    <section>
+                    <>
+                    <section className="element">
                         <article>
                             {d}: 
                         </article>
@@ -30,6 +31,7 @@ const MainCustomUrl = ()=>{
                                     return;
                                 }
                                 console.log(getJson);
+                                //setJson(getJson);
                                 setJson((json:any) => {
                                     if(json[temp] === undefined)
                                         json[temp] = [];
@@ -37,10 +39,18 @@ const MainCustomUrl = ()=>{
                                     json[temp].push(value);
                                     return json;
                                 });
+                                
                                 target.value = "";
                             }
                         }/>
                     </section>
+                    {getJson[d] === undefined ? '' : getJson[d].map((e: string) => {
+                        console.log(getJson[d]);
+                        return (
+                            <section className="list">{e}</section>
+                        )
+                    })}
+                    </>
                 );
             })}
             <input type="button" value="submit!" onClick={()=>{
