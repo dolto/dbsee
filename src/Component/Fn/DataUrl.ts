@@ -30,9 +30,9 @@ const urlInit = (url: string): string => {
 
     tempData.forEach((d, i) => {
         if(i === tempData.length -1)
-            resultUrl += d + "=?";
+            resultUrl += d + "=1";
         else
-            resultUrl += d + "=?&";
+            resultUrl += d + "=1&";
     });
 
     return resultUrl;
@@ -43,6 +43,8 @@ const urlData = (data: TapsData): string => {
     let url = data['url'];
     let resultUrl = url.split('?')[0] + "?";
     let tempData = dataUrl(url);
+
+    console.log(data)
 
     tempData.forEach((d, i) => {
         if(i === tempData.length -1)

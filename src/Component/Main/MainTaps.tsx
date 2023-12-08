@@ -48,11 +48,22 @@ const MainTapsElementPage = styled.section`
     width: calc(100% - 4.2rem);
     border: solid 2px #000000;
     border-top: transparent;
+
+    nav{
+        border: solid 2px gray;
+        min-height: 3rem;
+        cursor: pointer;
+    }
+    article{
+        justify-self: end;
+        font-size: 0.8rem;
+        margin-top: 0.9rem;
+    }
 `;
 
 const MainTapsElement = (params:TapsElementParams) => {
-    const storage = localStorage.getItem(`TpasData${params.index}`);
-    const data: [TapsData] = JSON.parse(storage === null ? "[]":storage as string)
+    const storage = localStorage.getItem(`TapsData${params.index}`);
+    const data: TapsData[] = JSON.parse(storage === null ? "[]":storage as string)
     const nav = useNavigate();
     return (
         <MainTapsElementPage>
@@ -74,8 +85,11 @@ const MainTapsElement = (params:TapsElementParams) => {
             {data.map(d => {
                 let data = LZString.compressToEncodedURIComponent(encodeURIComponent( JSON.stringify(d) as string ));
                 return(
-                    <nav onClick={() => {nav(data)}}>
+                    <nav onClick={() => {nav('/DBSeeMake?d='+data)}}>
                         <h2>{d.name}</h2>
+                        <article>
+                            <p>{d.description}</p>
+                        </article>
                     </nav>
                 )
             })}

@@ -5,6 +5,7 @@ interface TapsElementParams {
 interface TapsData {
     name: string,
     url: string,
+    description: string,
     params: string[],
     params_value: string[][],
     result_value: string[]

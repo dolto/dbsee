@@ -8,6 +8,10 @@ const MainCustomPage = styled.main`
         font-size: 1.5rem;
         font-weight: bold;
     }
+    h3{
+        font-size: 1rem;
+        font-weight: bold;
+    }
     .element{
         display: flex;
         text-align: center;
@@ -18,7 +22,9 @@ const MainCustomPage = styled.main`
     .list{
         text-align: center;
     }
-
+    li{
+        cursor: pointer;
+    }
 `;
 
 export default MainCustomPage;

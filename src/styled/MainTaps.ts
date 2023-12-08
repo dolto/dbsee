@@ -15,9 +15,11 @@ const MainTapsPage = styled.main`
         text-align: center;
         justify-content: center;
         margin-bottom: 0px;
+        cursor: pointer;
     }
     .select{
         border-bottom: transparent;
+        
     }
 
 `;

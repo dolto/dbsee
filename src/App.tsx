@@ -5,7 +5,7 @@ import MainSearch from './Component/Main/MainSearch';
 import MainDBsee from './Component/Main/MainDBsee';
 import {MainTaps, MainTapsElement} from './Component/Main/MainTaps';
 import MainDBseeManager from './Component/Main/MainDBseeManager';
-import MainCustomUrl from './Component/Main/MainCustomUrl';
+import {MainCustomUrl, MainMakeUrl} from './Component/Main/MainCustomUrl';
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
             
         </Route>
         <Route path='/DBSeeCustom' element={<MainCustomUrl />}></Route>
+        <Route path='/DBSeeMake' element={<MainMakeUrl />}></Route>
       </Routes>
       <Footer></Footer>
     </div>
