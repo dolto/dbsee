@@ -3,7 +3,7 @@ import Footer from './Component/Footer/Footer';
 import { Route, Routes } from 'react-router-dom';
 import MainSearch from './Component/Main/MainSearch';
 import MainDBsee from './Component/Main/MainDBsee';
-import MainTaps from './Component/Main/MainTaps';
+import {MainTaps, MainTapsElement} from './Component/Main/MainTaps';
 import MainDBseeManager from './Component/Main/MainDBseeManager';
 import MainCustomUrl from './Component/Main/MainCustomUrl';
 
@@ -18,15 +18,17 @@ function App() {
         element={<MainDBsee/>}/>
         <Route path='/Taps'
         element={<MainTaps/>}>
-          <Route path='1'></Route>
-          <Route path='2'></Route>
-          <Route path='3'></Route>
+            <Route path='1' element={<MainTapsElement index={1}/>}></Route>
+            <Route path='2' element={<MainTapsElement index={2}/>}></Route>
+            <Route path='3' element={<MainTapsElement index={3}/>}></Route>
         </Route>
+
+
         <Route path='/DBManager'
         element={<MainDBseeManager/>}>
             
         </Route>
-        <Route path='/DBSeeCustom' element={<MainCustomUrl/>}></Route>
+        <Route path='/DBSeeCustom' element={<MainCustomUrl />}></Route>
       </Routes>
       <Footer></Footer>
     </div>
